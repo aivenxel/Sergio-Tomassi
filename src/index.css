@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  
+  --color-brand-marine: #002D72; /* Deep Sapphire (Primary Base) */
+  --color-brand-navy-core: #001A44; /* Darker tone of deep sapphire */
+  --color-brand-erable: #8C1C2F; /* Canadian accent Maple Red */
+  --color-brand-or: #F9A825; /* Golden Pulse (Primary Background Accent) */
+  --color-brand-ciel: #1E88E5; /* Royal Blue Beam (Primary Action) */
+  --color-brand-ivoire: #FFF8E1; /* Luxe Ivory Mist (Secondary Base) */
+  --color-brand-blanc: #FFFFFF;
+  --color-brand-ardoise: #475569; /* Slate grey for clean text reading */
+
+  /* Scale font-sizes under 1rem for improved legibility */
+  --text-xs: 0.85rem;
+  --text-sm: 0.95rem;
+}
+
+/* Custom visual styles for nice focus states, selection, and base values */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-brand-marine);
+  background-color: var(--color-brand-blanc);
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Custom contrast rules requested by user */
+/* 1. Paragraphs on light/white backgrounds must be highly legible soft off-black */
+.bg-brand-blanc p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire):not(.text-emerald-700), 
+.bg-white p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire):not(.text-emerald-700), 
+.bg-white\/60 p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire):not(.text-emerald-700), 
+.bg-white\/80 p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire):not(.text-emerald-700), 
+.bg-brand-ivoire\/50 p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire):not(.text-emerald-700) {
+  color: #1e293b;
+}
+
+/* 2. Blue & dark backgrounds MUST override any nested paragraph styles to high contrast white/light text */
+.bg-brand-marine, 
+.bg-brand-navy,
+.bg-brand-marine\/90,
+.bg-[#0a1829],
+.bg-[#0a1829]\/90,
+.video-subtitle-box {
+  color: #ffffff;
+}
+
+.bg-brand-marine p,
+.bg-brand-navy p,
+.bg-[#0a1829] p {
+  color: #f8fafc !important;
+}
+
+.bg-brand-marine p.text-brand-or,
+.bg-brand-navy p.text-brand-or,
+.bg-[#0a1829] p.text-brand-or {
+  color: #F9A825 !important;
+}
+
+.bg-brand-marine p.text-brand-ciel,
+.bg-brand-navy p.text-brand-ciel,
+.bg-[#0a1829] p.text-brand-ciel {
+  color: #60a5fa !important;
+}
+
+#sub-fr,
+.sub-french-text {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+#sub-es,
+.sub-spanish-text {
+  color: #90caf9 !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Soft ambient blur blobs characteristic of high-end editorial portfolios */
+.editorial-blur-yellow {
+  background-color: var(--color-brand-or);
+  filter: blur(120px);
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
+
+.editorial-blur-blue {
+  background-color: var(--color-brand-ciel);
+  filter: blur(120px);
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+}
+

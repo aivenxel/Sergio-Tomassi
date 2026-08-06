@@ -1,0 +1,45 @@
+/* Custom contrast rules requested by user */
+/* 1. Paragraphs on light/white backgrounds must be highly legible soft off-black */
+.bg-brand-blanc p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire), 
+.bg-white p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire), 
+.bg-white\/60 p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire), 
+.bg-white\/80 p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire), 
+.bg-brand-ivoire\/50 p:not(.text-white):not(.text-brand-ciel):not(.text-brand-or):not(.text-brand-ivoire) {
+  color: #1e293b;
+}
+
+/* 2. Blue backgrounds & Video Subtitles must have 100% crisp contrast text */
+.video-subtitle-box,
+.bg-brand-marine\/90,
+.bg-[#0a1829]\/90,
+.bg-brand-marine, 
+.bg-brand-navy {
+  color: #ffffff !important;
+}
+
+#sub-fr,
+.sub-french-text {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+#sub-es,
+.sub-spanish-text {
+  color: #90caf9 !important;
+}
+
+/* Custom animation for video soundwave equalizer pulse */
+@keyframes pulse {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+.equalizer-bar {
+  transition: height 0.15s ease-in-out;
+}
+.equalizer-active {
+  animation: pulse var(--pulse-duration, 0.8s) ease-in-out var(--pulse-delay, 0s) infinite alternate;
+}
+
+html {
+  scroll-behavior: smooth;
+}

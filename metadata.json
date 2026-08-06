@@ -1,0 +1,6 @@
+{
+  "name": "Phonétique du Français",
+  "description": "Landing page oficial del Prof. Sergio Tomassi para mejorar la pronunciación, entonación y confianza en francés con un enfoque estructural y humano.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

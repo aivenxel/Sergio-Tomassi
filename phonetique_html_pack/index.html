@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phonétique du Français — Prof. Sergio Tomassi</title>
+  
+  <!-- Font Integrations matching premium editorial style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              marine: '#002D72',     /* Deep Sapphire (Primary Base) */
+              navy: '#001A44',       /* Darker Sapphire Core */
+              erable: '#8C1C2F',     /* Canadian Accent Maple Red */
+              or: '#F9A825',         /* Golden Pulse (Accent / Highlights) */
+              ciel: '#1E88E5',       /* Royal Blue Beam (Primary Action) */
+              ivoire: '#FFF8E1',     /* Luxe Ivory Mist (Secondary Base) */
+              blanc: '#FFFFFF',
+              ardoise: '#475569'     /* Slate grey for high legibility */
+            }
+          },
+          fontFamily: {
+            sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Fraunces"', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          scale: {
+            '102': '1.02'
+          },
+          fontSize: {
+            'xs': '0.85rem',
+            'sm': '0.95rem'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-brand-blanc text-brand-marine font-sans antialiased overflow-x-hidden selection:bg-brand-or/30 selection:text-brand-marine">
+
+  <!-- Header Section with Navigation -->
+  <header class="fixed top-0 inset-x-0 bg-white/95 backdrop-blur-md border-b border-brand-ivoire z-40 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Emblem -->
+      <a href="#hero" class="flex items-center gap-3 select-none">
+        <div class="relative w-12 h-12 flex items-center justify-center flex-shrink-0">
+          <!-- Logo image fallback or beautiful circular vector -->
+          <div class="w-10 h-10 rounded-full border-2 border-brand-marine bg-brand-ivoire flex items-center justify-center font-serif text-brand-marine font-bold text-lg shadow-xs">
+            PF
+          </div>
+          <div class="absolute -inset-1 border border-brand-ciel/20 rounded-full animate-spin" style="animation-duration: 25s;"></div>
+        </div>
+        <div>
+          <span class="font-sans text-xs tracking-[0.25em] font-black text-brand-marine uppercase block">PHONÉTIQUE</span>
+          <span class="font-serif italic text-[11px] text-brand-or tracking-wider font-medium block">du Français</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links (Responsive breakpoint: lg) -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-sans font-semibold tracking-wide">
+        <a href="#diagnosis" class="text-brand-ardoise hover:text-brand-marine transition-colors relative group py-2">
+          ¿Te pasa esto?
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-or transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#method" class="text-brand-ardoise hover:text-brand-marine transition-colors relative group py-2">
+          El Método
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-or transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#benefits" class="text-brand-ardoise hover:text-brand-marine transition-colors relative group py-2">
+          Beneficios
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-or transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#professor" class="text-brand-ardoise hover:text-brand-marine transition-colors relative group py-2">
+          El Profesor
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-or transition-all group-hover:w-full"></span>
+        </a>
+      </nav>
+
+      <!-- Desktop Call to Action Button -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="#conversion-form" class="inline-flex items-center justify-center gap-2 bg-brand-marine text-white hover:bg-brand-ciel hover:text-brand-marine px-5 py-2.5 rounded-lg font-sans font-bold text-sm tracking-wide transition-all shadow-xs hover:shadow-md">
+          Reservar clase
+        </a>
+      </div>
+
+      <!-- Tablet/Mobile Menu Toggle (Hamburger) -->
+      <div class="flex lg:hidden">
+        <button id="mobile-menu-toggle" class="text-brand-marine hover:text-brand-ciel transition-colors p-2 focus:outline-none" aria-label="Abrir menú">
+          <!-- Hamburger Icon -->
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close Icon (Hidden by default) -->
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile/Tablet Drawer Navigation Menu -->
+    <div id="mobile-drawer" class="hidden fixed inset-x-0 top-[64px] sm:top-[80px] bg-white border-b border-brand-ivoire shadow-lg z-30 p-6 flex flex-col space-y-4">
+      <a href="#diagnosis" class="mobile-nav-link text-left py-3 border-b border-brand-ivoire font-serif text-lg font-bold text-brand-marine">
+        😶 ¿Te pasa esto?
+      </a>
+      <a href="#method" class="mobile-nav-link text-left py-3 border-b border-brand-ivoire font-serif text-lg font-bold text-brand-marine">
+        🏗️ La Arquitectura del Método
+      </a>
+      <a href="#benefits" class="mobile-nav-link text-left py-3 border-b border-brand-ivoire font-serif text-lg font-bold text-brand-marine">
+        🎯 Beneficios y Resultados
+      </a>
+      <a href="#professor" class="mobile-nav-link text-left py-3 border-b border-brand-ivoire font-serif text-lg font-bold text-brand-marine">
+        👨‍🏫 El Profesor
+      </a>
+      <a href="#conversion-form" class="mobile-nav-link w-full inline-flex items-center justify-center gap-2 bg-brand-or text-brand-marine font-bold py-3.5 rounded-lg text-base tracking-wide shadow-md">
+        Quiero mejorar mi pronunciación
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-[100vh] flex flex-col justify-between bg-brand-blanc overflow-hidden pt-44 pb-32 sm:pt-48 sm:pb-36 lg:pt-52 lg:pb-40 px-6 sm:px-12 lg:px-20">
+    <!-- Grid Overlay background -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none select-none">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#002D72" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+    </div>
+
+    <!-- Main Layout Container -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-10 my-auto">
+      
+      <!-- Left text area -->
+      <div class="lg:col-span-7 text-left space-y-8 max-w-2xl">
+        <div class="space-y-4">
+          <span class="font-mono text-xs font-bold text-brand-ciel tracking-[0.25em] uppercase bg-brand-ivoire px-3 py-1.5 rounded-md border border-brand-or/20 inline-block">
+            MÉTODO DEL PROF. SERGIO TOMASSI
+          </span>
+          <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal leading-tight text-brand-marine tracking-tight">
+            Construye una voz más <br />
+            <span class="font-serif italic text-brand-or font-medium relative inline-block">
+              clara y segura
+              <svg class="absolute -bottom-2 left-0 w-full h-2 text-brand-ciel" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" stroke-width="3"></path></svg>
+            </span> en francés.
+          </h1>
+        </div>
+
+        <p class="font-sans text-base sm:text-lg text-brand-ardoise leading-relaxed font-light">
+          Aprender francés no es solo memorizar palabras. También es afinar tu oído, ajustar tu pronunciación y ganar confianza para hablar con claridad, naturalidad y seguridad.
+        </p>
+
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+          <a href="#conversion-form" class="inline-flex items-center justify-center gap-2 bg-brand-ciel text-white hover:bg-brand-marine px-8 py-4 rounded-lg font-sans font-bold tracking-wide text-base transition-all duration-300 shadow-md hover:shadow-lg">
+            Quiero mejorar mi pronunciación
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+          <a href="#benefits" class="inline-flex items-center justify-center gap-2 border border-brand-marine/20 bg-brand-ivoire/40 text-brand-marine hover:bg-brand-ivoire px-8 py-4 rounded-lg font-sans font-bold tracking-wide text-base transition-all duration-300">
+            Ver programas
+          </a>
+        </div>
+      </div>
+
+      <!-- Right image area (40-45% presence) -->
+      <div class="lg:col-span-5 flex flex-col items-center gap-6 relative">
+        <div class="relative w-full max-w-[360px] aspect-[4/5] rounded-2xl bg-white p-3.5 border border-brand-ivoire shadow-2xl">
+          <div class="w-full h-full rounded-xl overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600&h=750" 
+              alt="Prof. Sergio Tomassi" 
+              class="w-full h-full object-cover filter brightness-[1.02]"
+              referrerpolicy="no-referrer"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-marine/50 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- Core teaching philosophy line beneath portrait -->
+        <div class="mt-4 flex items-center justify-center gap-2 text-brand-marine font-serif text-sm sm:text-base italic font-semibold text-center bg-brand-ivoire/50 px-4 py-2.5 rounded-xl border border-brand-ivoire/80 shadow-xs z-20">
+          <span>Enseñando con respeto, precisión y humanidad.</span>
+          <span class="text-brand-erable text-base">❤️</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Video Intro Section -->
+  <section id="video-intro" class="relative py-20 bg-brand-ivoire/60 text-brand-marine overflow-hidden px-6 sm:px-12 lg:px-20 border-y border-brand-ivoire">
+    <!-- Decorative concentric waves -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-brand-ciel/15 pointer-events-none select-none z-0"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-brand-or/15 pointer-events-none select-none z-0"></div>
+
+    <div class="relative max-w-7xl mx-auto z-10 space-y-12">
+      
+      <!-- Top Header -->
+      <div class="text-center space-y-3 max-w-3xl mx-auto">
+        <span class="font-sans text-xs uppercase tracking-[0.25em] font-semibold text-brand-ciel inline-flex items-center gap-1.5 bg-brand-ciel/10 px-3 py-1 rounded-full border border-brand-ciel/20">
+          <svg class="w-3.5 h-3.5 text-brand-or" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          MENSAJE DEL PROFESOR
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-brand-marine">
+          Escucha la filosofía del método
+        </h2>
+        <p class="font-sans text-base sm:text-lg text-brand-ardoise font-light">
+          En un minuto, Sergio Tomassi explica por qué leer francés no es lo mismo que hablarlo y cómo desbloquear tu fluidez.
+        </p>
+      </div>
+
+      <!-- 2-Column Grid: Vertical Video Reel + Editorial Explanatory Column -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        <!-- Column 1: Vertical 9:16 Video Player Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-[350px] sm:max-w-[370px] aspect-[9/16] bg-[#0a1829] rounded-3xl overflow-hidden border-2 border-brand-ciel/30 shadow-2xl flex flex-col justify-between group">
+            
+            <!-- Native HTML5 Video Element & Fallback Frame Background -->
+            <div class="absolute inset-0 w-full h-full z-0">
+              <video 
+                id="sergio-intro-video"
+                src="sergio_intro.mp4"
+                poster="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600&h=1066"
+                class="w-full h-full object-cover transition-all duration-700 filter brightness-[0.55]"
+                playsinline
+              ></video>
+              <img 
+                id="video-image"
+                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600&h=1066" 
+                alt="Prof. Sergio Tomassi"
+                class="w-full h-full object-cover transition-all duration-700 filter brightness-[0.55] hidden"
+                referrerpolicy="no-referrer"
+              />
+              <div class="absolute inset-0 bg-gradient-to-b from-[#0a1829]/60 via-transparent to-[#0a1829]/90"></div>
+            </div>
+
+            <!-- Reel Top Bar Overlay -->
+            <div class="relative z-10 p-4 flex items-center justify-between gap-2 border-b border-white/10 bg-[#0a1829]/40 backdrop-blur-md">
+              <div class="flex items-center gap-2">
+                <div id="playback-status-dot" class="w-2.5 h-2.5 rounded-full bg-brand-or"></div>
+                <span id="playback-status-text" class="font-mono text-[10px] tracking-wider uppercase text-white font-medium">
+                  MENSAJE EN VIDEO
+                </span>
+              </div>
+
+              <!-- Equalizer Wave Animation -->
+              <div id="equalizer-container" class="flex items-end gap-0.5 h-4"></div>
+            </div>
+
+            <!-- Big Centered Play Button (Visible when paused) -->
+            <div id="center-play-wrapper" class="relative z-20 my-auto text-center px-4">
+              <button 
+                id="video-play-btn"
+                class="w-18 h-18 mx-auto flex items-center justify-center rounded-full bg-brand-or text-brand-marine hover:bg-brand-ciel hover:text-white transition-all duration-300 transform hover:scale-108 active:scale-95 shadow-xl group cursor-pointer"
+              >
+                <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </button>
+              <p class="mt-3 font-sans text-xs text-brand-ivoire/90 font-medium bg-brand-marine/70 backdrop-blur-sm py-1 px-3 rounded-full inline-block border border-white/10">
+                Haz clic para reproducir mensaje
+              </p>
+            </div>
+
+            <!-- Dynamic Bilingual Subtitles Container -->
+            <div class="relative z-10 p-4 space-y-3 mt-auto">
+              <div class="video-subtitle-box bg-[#001A44] p-4 rounded-xl border border-brand-ciel/50 shadow-2xl text-left">
+                <!-- French caption -->
+                <p id="sub-fr" class="sub-french-text font-serif text-sm sm:text-base font-medium leading-snug !text-white" style="color: #ffffff !important;">
+                  "La phonétique est la bête noire de l'enseignement des langues..."
+                </p>
+
+                <!-- Spanish translation -->
+                <p id="sub-es" class="sub-spanish-text font-sans text-xs mt-2 flex items-center gap-1.5 border-t border-white/20 pt-2 font-semibold !text-sky-300" style="color: #90caf9 !important;">
+                  <svg class="w-3.5 h-3.5 shrink-0 text-sky-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.229-.427-.46-.84-.688-1.239m1.239 1.239a17.94 17.94 0 01-1.048 4.5m1.048-4.5H6.412m0 0a17.92 17.92 0 00-.912 4.5M3 19h6l-2.286-3.048M21 12h-3.5A2.5 2.5 0 0015 14.5v1.5a2.5 2.5 0 002.5 2.5H21v-6z"></path></svg>
+                  <span style="color: #90caf9 !important;">La fonética es el 'patio feo' de la enseñanza de los idiomas...</span>
+                </p>
+              </div>
+
+              <!-- Bottom Custom Controls Bar -->
+              <div class="bg-[#0a1829]/90 backdrop-blur-md p-3 rounded-xl border border-white/10 flex items-center justify-between gap-3 text-white">
+                
+                <!-- Play / Pause Toggle -->
+                <button 
+                  id="video-bar-play-btn"
+                  class="text-brand-ivoire hover:text-brand-or transition-colors p-1 cursor-pointer focus:outline-none"
+                  title="Reproducir/Pausar"
+                >
+                  <svg id="play-bar-icon" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                </button>
+
+                <!-- Restart -->
+                <button 
+                  id="video-reset-btn"
+                  class="text-brand-ivoire hover:text-brand-ciel transition-colors p-1 cursor-pointer focus:outline-none"
+                  title="Reiniciar"
+                >
+                  <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3"></path></svg>
+                </button>
+
+                <!-- Progress bar -->
+                <div id="video-timeline-container" class="flex-1 relative h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer">
+                  <div 
+                    id="video-timeline-progress"
+                    class="absolute left-0 top-0 bottom-0 bg-brand-or w-0 transition-all duration-300"
+                  ></div>
+                </div>
+
+                <!-- Time -->
+                <span id="video-time-txt" class="font-mono text-[11px] text-brand-ivoire/90">
+                  0:00 / 1:00
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Column 2: Editorial Text Breakdown (Complementary Content) -->
+        <div class="lg:col-span-7 space-y-6 text-left">
+          
+          <!-- Highlight Quote Box -->
+          <div class="p-6 rounded-2xl bg-white border border-brand-ciel/25 shadow-md relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-or"></div>
+            <p class="font-serif text-xl sm:text-2xl text-brand-marine italic leading-relaxed">
+              "El cerebro lee de una forma y habla de otra. Por eso intentar hablar francés leyendo el texto escrito nunca te dará fluidez natural."
+            </p>
+            <div class="mt-4 flex items-center justify-between border-t border-brand-ivoire/60 pt-3 text-xs font-mono text-brand-ardoise">
+              <span class="font-bold text-brand-ciel">PROF. SERGIO TOMASSI</span>
+              <span>ARQUITECTO DE LA PRONUNCIACIÓN</span>
+            </div>
+          </div>
+
+          <!-- 3 Key Method Highlights -->
+          <div class="space-y-4">
+            
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/80 border border-brand-ivoire/80 hover:border-brand-ciel/40 transition-colors">
+              <div class="p-2 rounded-lg bg-brand-ciel/15 text-brand-ciel shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif font-bold text-brand-marine text-base">
+                  1. Deconstruir el texto escrito
+                </h4>
+                <p class="font-sans text-sm text-brand-ardoise font-light mt-1 leading-relaxed">
+                  Nuestro gran referente siempre ha sido la palabra escrita. En francés, el ojo engaña al oído. Primero deconstruimos tus hábitos de lectura para enseñarte a escuchar el francés real que se habla en las calles.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/80 border border-brand-ivoire/80 hover:border-brand-ciel/40 transition-colors">
+              <div class="p-2 rounded-lg bg-brand-or/20 text-brand-or shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif font-bold text-brand-marine text-base">
+                  2. Diagnóstico y corrección física
+                </h4>
+                <p class="font-sans text-sm text-brand-ardoise font-light mt-1 leading-relaxed">
+                  Todos los francófonos detectamos de inmediato los desvíos de pronunciación. En lugar de memorizar reglas teóricas, corregimos la colocación de tu boca, mandíbula y respiración.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/80 border border-brand-ivoire/80 hover:border-brand-ciel/40 transition-colors">
+              <div class="p-2 rounded-lg bg-brand-ciel/15 text-brand-ciel shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif font-bold text-brand-marine text-base">
+                  3. Herramientas de por vida
+                </h4>
+                <p class="font-sans text-sm text-brand-ardoise font-light mt-1 leading-relaxed">
+                  Te entregamos la estructura completa para que puedas auto-corregirte, hablar sin timidez y expresarte con absoluta seguridad en Québec o en cualquier entorno francófono.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CTA Box -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+            <a 
+              href="#conversion-form" 
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-or hover:bg-amber-400 text-brand-marine font-sans text-sm font-bold px-6 py-3.5 rounded-xl transition-all shadow-md active:scale-95 group cursor-pointer uppercase tracking-wider"
+            >
+              <span>¡Inscríbete Ahora! (Llenar Formulario)</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <span class="font-sans text-xs text-brand-ardoise font-medium text-center sm:text-left">
+              Asegura tu cupo en las clases del Prof. Sergio
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- El Diagnóstico y La Solución Section -->
+  <section id="diagnosis" class="relative py-24 bg-brand-blanc overflow-hidden px-6 sm:px-12 lg:px-20 border-b border-brand-ivoire">
+    <!-- Decorative ambient blur backgrounds -->
+    <div class="absolute top-1/4 right-10 w-72 h-72 rounded-full bg-brand-or/5 blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 left-10 w-72 h-72 rounded-full bg-brand-ciel/5 blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-5xl mx-auto space-y-16">
+      
+      <!-- Header Block -->
+      <div class="text-center space-y-4">
+        <span class="font-sans text-xs uppercase tracking-[0.25em] font-bold text-brand-ciel flex items-center justify-center gap-1.5">
+          <svg class="w-4 h-4 text-brand-or" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          EL DIAGNÓSTICO & LA SOLUCIÓN
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight text-brand-marine tracking-tight">
+          ¿Te pasa esto? <br />
+          <span class="font-serif italic text-brand-or font-medium">Estás en el lugar correcto.</span>
+        </h2>
+      </div>
+
+      <!-- Biomechanics & Bad Habits Highlight Banner (Solid Blue Navy) -->
+      <div class="bg-brand-marine rounded-2xl p-6 sm:p-8 text-white text-left space-y-4 shadow-xl border border-brand-ciel/30">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="space-y-1">
+            <span class="font-sans text-xs uppercase tracking-[0.2em] font-bold text-brand-or flex items-center gap-1.5">
+              👄 CLAVE DE APRENDIZAJE
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">
+              LA FONÉTICA NO ES MEMORIA, ¡ES BIOMECÁNICA!
+            </h3>
+          </div>
+          <div class="bg-brand-or text-brand-marine px-4 py-2 rounded-xl font-sans font-bold text-xs uppercase tracking-wider shadow-sm">
+            Entrenamiento Físico Vocal
+          </div>
+        </div>
+        
+        <p class="font-sans text-base sm:text-lg text-white font-normal leading-relaxed">
+          La pronunciación se aprende primero con el oído y después entrenando los músculos de la boca, mandíbula y lengua. <strong class="text-brand-or font-semibold">Los malos hábitos de pronunciación se fijan rápido. ¡Corrígelos a tiempo con la fonética!</strong>
+        </p>
+      </div>
+
+      <!-- 6 Diagnostic Grid List -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex gap-4 p-5 rounded-xl border border-brand-ivoire/80 bg-brand-ivoire/20 text-left items-start hover:border-brand-ciel/30 hover:bg-white transition-all shadow-xs">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-ciel/10 flex items-center justify-center text-brand-ciel font-bold text-sm">01</div>
+          <p class="font-sans text-sm sm:text-base text-brand-ardoise leading-relaxed font-light pt-0.5">
+            Entiendes más de lo que hablas, pero cuando te toca responder, te bloqueas.
+          </p>
+        </div>
+        <div class="flex gap-4 p-5 rounded-xl border border-brand-ivoire/80 bg-brand-ivoire/20 text-left items-start hover:border-brand-ciel/30 hover:bg-white transition-all shadow-xs">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-ciel/10 flex items-center justify-center text-brand-ciel font-bold text-sm">02</div>
+          <p class="font-sans text-sm sm:text-base text-brand-ardoise leading-relaxed font-light pt-0.5">
+            Te da pena pronunciar mal y sientes que te juzgan.
+          </p>
+        </div>
+        <div class="flex gap-4 p-5 rounded-xl border border-brand-ivoire/80 bg-brand-ivoire/20 text-left items-start hover:border-brand-ciel/30 hover:bg-white transition-all shadow-xs">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-ciel/10 flex items-center justify-center text-brand-ciel font-bold text-sm">03</div>
+          <p class="font-sans text-sm sm:text-base text-brand-ardoise leading-relaxed font-light pt-0.5">
+            Has estudiado francés, pero todavía no logras soltarte al hablar.
+          </p>
+        </div>
+        <div class="flex gap-4 p-5 rounded-xl border border-brand-ivoire/80 bg-brand-ivoire/20 text-left items-start hover:border-brand-ciel/30 hover:bg-white transition-all shadow-xs">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-ciel/10 flex items-center justify-center text-brand-ciel font-bold text-sm">04</div>
+          <p class="font-sans text-sm sm:text-base text-brand-ardoise leading-relaxed font-light pt-0.5">
+            Quieres expresarte mejor en entrevistas, estudios, trabajo o en tu vida diaria.
+          </p>
+        </div>
+        <div class="flex gap-4 p-5 rounded-xl border border-brand-ivoire/80 bg-brand-ivoire/20 text-left items-start hover:border-brand-ciel/30 hover:bg-white transition-all shadow-xs">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-ciel/10 flex items-center justify-center text-brand-ciel font-bold text-sm">05</div>
+          <p class="font-sans text-sm sm:text-base text-brand-ardoise leading-relaxed font-light pt-0.5">
+            Necesitas un profesor que te corrija con claridad, sin aplastarte y sin hacerte sentir menos.
+          </p>
+        </div>
+        <div class="flex gap-4 p-5 rounded-xl border border-brand-ivoire/80 bg-brand-ivoire/20 text-left items-start hover:border-brand-ciel/30 hover:bg-white transition-all shadow-xs">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-ciel/10 flex items-center justify-center text-brand-ciel font-bold text-sm">06</div>
+          <p class="font-sans text-sm sm:text-base text-brand-ardoise leading-relaxed font-light pt-0.5">
+            Quieres sonar más natural, entender mejor los matices del idioma y ganar confianza real al hablar.
+          </p>
+        </div>
+      </div>
+
+      <!-- Solution Pillar & Humor Box -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8">
+        
+        <!-- Solution Callout (H3) -->
+        <div class="lg:col-span-6 bg-brand-marine text-white p-8 sm:p-10 rounded-2xl text-left flex flex-col justify-between space-y-6 shadow-xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-brand-ciel/10 rounded-full translate-x-12 -translate-y-12 blur-2xl pointer-events-none"></div>
+          
+          <div class="space-y-4 z-10">
+            <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-brand-or font-bold flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+              PROPÓSITO CENTRAL
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-tight text-white">
+              Aquí no vienes a demostrar perfección. <br />
+              <span class="italic text-brand-or">Vienes a construir una voz más segura en francés.</span>
+            </h3>
+          </div>
+          
+          <p class="font-sans text-sm text-brand-ivoire/85 leading-relaxed font-light z-10 pt-4 border-t border-brand-ivoire/10">
+            Nuestro enfoque no te juzga ni te abruma. Se centra en afinar tu oído para que reconozcas los sonidos reales y hables con tranquilidad.
+          </p>
+        </div>
+
+        <!-- Humor Card -->
+        <div class="lg:col-span-6 bg-brand-ivoire border border-brand-or/20 p-8 sm:p-10 rounded-2xl text-left flex flex-col justify-between space-y-6 shadow-sm relative">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-brand-or" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <span class="font-sans text-xs uppercase tracking-[0.2em] font-bold text-brand-marine">
+                NOTA DE HUMOR
+              </span>
+            </div>
+            <p class="font-sans text-base sm:text-lg text-brand-marine font-semibold italic leading-relaxed">
+              "Aquí no venimos a pelear con la “r” ni a sufrir con las nasales."
+            </p>
+          </div>
+
+          <div class="space-y-2 pt-4 border-t border-brand-marine/10">
+            <p class="font-sans text-sm text-brand-ardoise font-light leading-relaxed">
+              Venimos a entenderlas y dominarlas. No a sufrir con ellas.
+            </p>
+            <div class="flex items-center gap-1 text-xs text-brand-ciel font-bold uppercase tracking-wider mt-2">
+              <svg class="w-3.5 h-3.5 fill-brand-or text-brand-or" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              Estructura sin tortura
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section Enrollment CTA -->
+      <div class="pt-6 text-center">
+        <a
+          href="#conversion-form"
+          class="inline-flex items-center justify-center gap-3 bg-brand-or hover:bg-amber-400 text-brand-marine px-8 py-4 rounded-xl font-sans font-bold text-sm sm:text-base uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+        >
+          <span>¡Inscríbete Ahora! Llenar Formulario de Inscripción</span>
+          <span class="text-xl">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- La Propuesta de Valor Section (Interactive Phase Steps) -->
+  <section id="method" class="relative py-24 bg-brand-ivoire/25 overflow-hidden px-6 sm:px-12 lg:px-20 border-b border-brand-ivoire">
+    <!-- Background blueprint elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 opacity-[0.02] pointer-events-none">
+      <svg viewBox="0 0 100 100" class="w-full h-full text-brand-marine">
+        <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="0.5" fill="none" />
+        <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" stroke-width="0.5" />
+        <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" stroke-width="0.5" />
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <!-- Split Headline Copy grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7 text-left space-y-4">
+          <span class="font-sans text-xs uppercase tracking-[0.25em] font-bold text-brand-ciel block">
+            LA METODOLOGÍA ESTRUCTURAL
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-brand-marine tracking-tight leading-tight">
+            La Arquitectura de <br />
+            <span class="italic font-medium text-brand-ciel relative inline-block">la Pronunciación</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="font-sans text-sm sm:text-base text-brand-ardoise font-light leading-relaxed text-left">
+            No enseñamos francés “bonito”. Enseñamos francés <strong>claro, útil y bien construido</strong>. Pequeños ajustes físicos y rítmicos cambian por completo la claridad, el ritmo y la seguridad con la que te expresas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Five Architectural Steps Grid / Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left Column: Interactive Navigation (5 Columns) -->
+        <div class="lg:col-span-5 space-y-3">
+          <p class="font-sans text-xs uppercase tracking-[0.15em] font-bold text-brand-ardoise mb-4 block text-left">
+            Fases de construcción de tu voz:
+          </p>
+          
+          <!-- Step 1 Button -->
+          <button
+            onclick="setActiveStep(0)"
+            id="step-btn-0"
+            class="step-btn w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between gap-4 group bg-brand-marine border-brand-marine text-white shadow-md cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="step-num font-mono text-sm font-bold text-brand-or">01</span>
+              <div class="shrink-0 p-2 rounded-lg bg-brand-ivoire/20 text-brand-or group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif text-base font-bold leading-tight text-white">Los Cimientos</h4>
+                <p class="step-subtitle font-sans text-xs text-brand-ivoire/80">Sonidos esenciales del francés</p>
+              </div>
+            </div>
+            <svg class="step-chevron w-4 h-4 text-brand-or translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <!-- Step 2 Button -->
+          <button
+            onclick="setActiveStep(1)"
+            id="step-btn-1"
+            class="step-btn w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between gap-4 group bg-white border-brand-ivoire text-brand-marine hover:border-brand-ciel/50 cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="step-num font-mono text-sm font-bold text-brand-ardoise">02</span>
+              <div class="shrink-0 p-2 rounded-lg bg-brand-ivoire/50 text-brand-marine group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif text-base font-bold leading-tight">La Estructura</h4>
+                <p class="step-subtitle font-sans text-xs text-brand-ardoise">Pronunciación y prosodia</p>
+              </div>
+            </div>
+            <svg class="step-chevron w-4 h-4 text-brand-ardoise opacity-0 group-hover:opacity-100 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <!-- Step 3 Button -->
+          <button
+            onclick="setActiveStep(2)"
+            id="step-btn-2"
+            class="step-btn w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between gap-4 group bg-white border-brand-ivoire text-brand-marine hover:border-brand-ciel/50 cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="step-num font-mono text-sm font-bold text-brand-ardoise">03</span>
+              <div class="shrink-0 p-2 rounded-lg bg-brand-ivoire/50 text-brand-marine group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif text-base font-bold leading-tight">Los Ajustes</h4>
+                <p class="step-subtitle font-sans text-xs text-brand-ardoise">Errores frecuentes y corrección</p>
+              </div>
+            </div>
+            <svg class="step-chevron w-4 h-4 text-brand-ardoise opacity-0 group-hover:opacity-100 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <!-- Step 4 Button -->
+          <button
+            onclick="setActiveStep(3)"
+            id="step-btn-3"
+            class="step-btn w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between gap-4 group bg-white border-brand-ivoire text-brand-marine hover:border-brand-ciel/50 cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="step-num font-mono text-sm font-bold text-brand-ardoise">04</span>
+              <div class="shrink-0 p-2 rounded-lg bg-brand-ivoire/50 text-brand-marine group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif text-base font-bold leading-tight">Los Espacios Habitables</h4>
+                <p class="step-subtitle font-sans text-xs text-brand-ardoise">Conversación y aplicación real</p>
+              </div>
+            </div>
+            <svg class="step-chevron w-4 h-4 text-brand-ardoise opacity-0 group-hover:opacity-100 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <!-- Step 5 Button -->
+          <button
+            onclick="setActiveStep(4)"
+            id="step-btn-4"
+            class="step-btn w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between gap-4 group bg-white border-brand-ivoire text-brand-marine hover:border-brand-ciel/50 cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="step-num font-mono text-sm font-bold text-brand-ardoise">05</span>
+              <div class="shrink-0 p-2 rounded-lg bg-brand-ivoire/50 text-brand-marine group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-serif text-base font-bold leading-tight">Los Acabados</h4>
+                <p class="step-subtitle font-sans text-xs text-brand-ardoise">Naturalidad, confianza y fluidez</p>
+              </div>
+            </div>
+            <svg class="step-chevron w-4 h-4 text-brand-ardoise opacity-0 group-hover:opacity-100 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+        </div>
+
+        <!-- Right Column: Expanded Dynamic Card -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-brand-ivoire p-6 sm:p-8 flex flex-col justify-between shadow-xs relative overflow-hidden text-left min-h-[380px]">
+          <!-- Structural corner lines -->
+          <div class="absolute top-0 right-0 w-20 h-20 border-t border-r border-brand-ciel/30 pointer-events-none translate-x-[-10px] translate-y-[10px]"></div>
+          <div class="absolute bottom-0 left-0 w-20 h-20 border-b border-l border-brand-or/30 pointer-events-none translate-x-[10px] translate-y-[-10px]"></div>
+
+          <div class="space-y-6 relative z-10">
+            <!-- Step Header -->
+            <div class="flex justify-between items-start border-b border-brand-ivoire pb-4">
+              <div>
+                <span id="detail-phase-num" class="font-mono text-xs text-brand-ciel uppercase tracking-widest font-bold">
+                  Fase 01 del plan de obra
+                </span>
+                <h3 id="detail-title" class="font-serif text-2xl sm:text-3xl font-bold text-brand-marine mt-0.5">
+                  Los Cimientos
+                </h3>
+                <p id="detail-subtitle" class="font-sans text-xs sm:text-sm text-brand-or font-semibold uppercase tracking-wider mt-0.5">
+                  Sonidos esenciales del francés
+                </p>
+              </div>
+              <div id="detail-large-num" class="text-3xl font-mono text-brand-marine/20 font-bold select-none">
+                #01
+              </div>
+            </div>
+
+            <!-- Step Description + Image Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+              <div class="sm:col-span-7 space-y-3">
+                <p id="detail-desc" class="font-sans text-sm sm:text-base text-brand-ardoise leading-relaxed font-normal">
+                  Comenzamos dominando los sonidos que no existen en español. Entender las vocales nasales y la emblemática 'R' francesa desde su colocación física, sin misterios.
+                </p>
+              </div>
+
+              <div class="sm:col-span-5 relative rounded-2xl overflow-hidden border border-brand-ivoire shadow-md group h-40 sm:h-44">
+                <img
+                  id="detail-img"
+                  src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800"
+                  alt="Los Cimientos"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-marine/85 via-transparent to-transparent flex items-end p-2.5">
+                  <span id="detail-img-tag" class="bg-brand-marine/90 text-brand-or px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase border border-brand-or/30 shadow-xs">
+                    📷 Fichas & Grafía
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Architectural structural reference overlay -->
+          <div class="mt-6 bg-brand-ivoire/60 p-3.5 rounded-xl border-l-4 border-brand-or flex items-center justify-between gap-4 text-xs font-mono relative z-10">
+            <div class="text-left">
+              <span class="text-brand-ardoise block uppercase tracking-wider text-[9px] font-bold">
+                Referencia Técnica Arquitectónica
+              </span>
+              <span id="detail-ref" class="text-brand-marine font-bold">
+                Puesta a nivel y cimentación profunda.
+              </span>
+            </div>
+            <div class="text-brand-ciel shrink-0 text-base">
+              📐
+            </div>
+          </div>
+
+        </div>
+            <div class="text-brand-ciel shrink-0">
+              📐
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Humorous Note for the Method -->
+      <div class="max-w-3xl mx-auto mt-12 bg-white/60 backdrop-blur-xs border border-brand-or/20 rounded-xl p-6 text-center shadow-xs">
+        <p class="font-sans text-sm sm:text-base text-brand-marine italic font-medium leading-relaxed">
+          "Pronunciar mejor no es magia negra ni tortura académica. Es práctica, oído y buenos ajustes."
+        </p>
+      </div>
+
+      <!-- Section Enrollment CTA -->
+      <div class="pt-6 text-center">
+        <a
+          href="#conversion-form"
+          class="inline-flex items-center justify-center gap-3 bg-brand-or hover:bg-amber-400 text-brand-marine px-8 py-4 rounded-xl font-sans font-bold text-sm sm:text-base uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+        >
+          <span>¡Inscríbete Ahora! Llenar Formulario de Inscripción</span>
+          <span class="text-xl">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="relative py-24 bg-brand-blanc overflow-hidden px-6 sm:px-12 lg:px-20 border-b border-brand-ivoire">
+    
+    <!-- Decorative vertical blueprint markings -->
+    <div class="absolute top-0 bottom-0 left-[10%] w-[1px] bg-brand-ivoire/40 hidden lg:block pointer-events-none"></div>
+    <div class="absolute top-0 bottom-0 right-[10%] w-[1px] bg-brand-ivoire/40 hidden lg:block pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto space-y-16">
+      
+      <!-- Section Title -->
+      <div class="space-y-4 text-center">
+        <span class="font-sans text-xs uppercase tracking-[0.25em] font-bold text-brand-ciel block">
+          BENEFICIOS REALES
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-brand-marine tracking-tight">
+          Lo que trabajas con el Profe Sergio
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-brand-ardoise font-light max-w-xl mx-auto">
+          El camino concreto para dejar atrás los bloqueos y construir una voz que se comprenda de verdad.
+        </p>
+      </div>
+
+      <!-- Clean comparative table layout -->
+      <div class="bg-white rounded-2xl border border-brand-ivoire/80 shadow-md overflow-hidden divide-y divide-brand-ivoire/60">
+        <!-- Table Headers (Visible on Desktop only) -->
+        <div class="hidden md:grid grid-cols-12 gap-6 bg-brand-ivoire/30 px-8 py-5 font-sans text-xs uppercase tracking-[0.2em] font-bold text-brand-marine border-b border-brand-ivoire/50 text-left">
+          <div class="col-span-5 flex items-center gap-2">
+            <span class="text-brand-or">◆</span> EL ENFOQUE DE TRABAJO
+          </div>
+          <div class="col-span-7 flex items-center gap-2 pl-6">
+            <span class="text-brand-ciel">◆</span> EL RESULTADO DIRECTO
+          </div>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="group grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8 items-start hover:bg-brand-ivoire/20 transition-all duration-300 text-left">
+          <div class="md:col-span-5 flex items-center gap-4">
+            <span class="font-mono text-xs text-brand-ardoise font-bold select-none shrink-0">01</span>
+            <div class="p-2.5 rounded-lg bg-brand-ivoire/60 text-brand-marine shrink-0">
+              <svg class="w-5 h-5 text-brand-or" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <span class="font-sans text-[9px] text-brand-ardoise uppercase tracking-widest font-bold block md:hidden mb-0.5">EL ENFOQUE</span>
+              <h4 class="font-serif text-lg font-bold text-brand-marine">Pronunciación</h4>
+            </div>
+          </div>
+          <div class="md:col-span-7 flex items-start gap-3 pl-0 md:pl-6 border-t border-brand-ivoire/40 md:border-t-0 pt-4 md:pt-0">
+            <div class="mt-1 shrink-0 text-brand-ciel">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="space-y-1">
+              <span class="font-sans text-[9px] text-brand-ciel uppercase tracking-widest font-bold block md:hidden mb-0.5">EL RESULTADO DIRECTO</span>
+              <h4 class="font-serif text-base sm:text-lg font-bold text-brand-marine">Más claridad al hablar.</h4>
+              <p class="font-sans text-xs sm:text-sm text-brand-ardoise font-light leading-relaxed">
+                Afinamos y ajustamos físicamente los sonidos vocálicos y consonánticos esenciales para que te expreses con total nitidez.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="group grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8 items-start hover:bg-brand-ivoire/20 transition-all duration-300 text-left">
+          <div class="md:col-span-5 flex items-center gap-4">
+            <span class="font-mono text-xs text-brand-ardoise font-bold select-none shrink-0">02</span>
+            <div class="p-2.5 rounded-lg bg-brand-ivoire/60 text-brand-marine shrink-0">
+              <svg class="w-5 h-5 text-brand-ciel" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <span class="font-sans text-[9px] text-brand-ardoise uppercase tracking-widest font-bold block md:hidden mb-0.5">EL ENFOQUE</span>
+              <h4 class="font-serif text-lg font-bold text-brand-marine">Prosodia</h4>
+            </div>
+          </div>
+          <div class="md:col-span-7 flex items-start gap-3 pl-0 md:pl-6 border-t border-brand-ivoire/40 md:border-t-0 pt-4 md:pt-0">
+            <div class="mt-1 shrink-0 text-brand-ciel">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="space-y-1">
+              <span class="font-sans text-[9px] text-brand-ciel uppercase tracking-widest font-bold block md:hidden mb-0.5">EL RESULTADO DIRECTO</span>
+              <h4 class="font-serif text-base sm:text-lg font-bold text-brand-marine">Más naturalidad y fluidez.</h4>
+              <p class="font-sans text-xs sm:text-sm text-brand-ardoise font-light leading-relaxed">
+                Trabajamos el ritmo, las pausas, las uniones de palabras (liaisons) y la entonación real del francés hablado.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="group grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8 items-start hover:bg-brand-ivoire/20 transition-all duration-300 text-left">
+          <div class="md:col-span-5 flex items-center gap-4">
+            <span class="font-mono text-xs text-brand-ardoise font-bold select-none shrink-0">03</span>
+            <div class="p-2.5 rounded-lg bg-brand-ivoire/60 text-brand-marine shrink-0">
+              <svg class="w-5 h-5 text-brand-or" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <div>
+              <span class="font-sans text-[9px] text-brand-ardoise uppercase tracking-widest font-bold block md:hidden mb-0.5">EL ENFOQUE</span>
+              <h4 class="font-serif text-lg font-bold text-brand-marine">Confianza oral</h4>
+            </div>
+          </div>
+          <div class="md:col-span-7 flex items-start gap-3 pl-0 md:pl-6 border-t border-brand-ivoire/40 md:border-t-0 pt-4 md:pt-0">
+            <div class="mt-1 shrink-0 text-brand-ciel">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="space-y-1">
+              <span class="font-sans text-[9px] text-brand-ciel uppercase tracking-widest font-bold block md:hidden mb-0.5">EL RESULTADO DIRECTO</span>
+              <h4 class="font-serif text-base sm:text-lg font-bold text-brand-marine">Menos pena, menos bloqueo.</h4>
+              <p class="font-sans text-xs sm:text-sm text-brand-ardoise font-light leading-relaxed">
+                Eliminamos el temor al acento y la timidez del directo para que hables libremente, con seguridad en ti mismo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="group grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8 items-start hover:bg-brand-ivoire/20 transition-all duration-300 text-left">
+          <div class="md:col-span-5 flex items-center gap-4">
+            <span class="font-mono text-xs text-brand-ardoise font-bold select-none shrink-0">04</span>
+            <div class="p-2.5 rounded-lg bg-brand-ivoire/60 text-brand-marine shrink-0">
+              <svg class="w-5 h-5 text-brand-ciel" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            <div>
+              <span class="font-sans text-[9px] text-brand-ardoise uppercase tracking-widest font-bold block md:hidden mb-0.5">EL ENFOQUE</span>
+              <h4 class="font-serif text-lg font-bold text-brand-marine">Corrección guiada</h4>
+            </div>
+          </div>
+          <div class="md:col-span-7 flex items-start gap-3 pl-0 md:pl-6 border-t border-brand-ivoire/40 md:border-t-0 pt-4 md:pt-0">
+            <div class="mt-1 shrink-0 text-brand-ciel">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="space-y-1">
+              <span class="font-sans text-[9px] text-brand-ciel uppercase tracking-widest font-bold block md:hidden mb-0.5">EL RESULTADO DIRECTO</span>
+              <h4 class="font-serif text-base sm:text-lg font-bold text-brand-marine">Aprender sin sentirte juzgado.</h4>
+              <p class="font-sans text-xs sm:text-sm text-brand-ardoise font-light leading-relaxed">
+                Ajustes técnicos constructivos en un ambiente seguro, de sumo respeto y paciencia con tu propio ritmo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="group grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8 items-start hover:bg-brand-ivoire/20 transition-all duration-300 text-left">
+          <div class="md:col-span-5 flex items-center gap-4">
+            <span class="font-mono text-xs text-brand-ardoise font-bold select-none shrink-0">05</span>
+            <div class="p-2.5 rounded-lg bg-brand-ivoire/60 text-brand-marine shrink-0">
+              <svg class="w-5 h-5 text-brand-or" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+            </div>
+            <div>
+              <span class="font-sans text-[9px] text-brand-ardoise uppercase tracking-widest font-bold block md:hidden mb-0.5">EL ENFOQUE</span>
+              <h4 class="font-serif text-lg font-bold text-brand-marine">Constancia</h4>
+            </div>
+          </div>
+          <div class="md:col-span-7 flex items-start gap-3 pl-0 md:pl-6 border-t border-brand-ivoire/40 md:border-t-0 pt-4 md:pt-0">
+            <div class="mt-1 shrink-0 text-brand-ciel">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="space-y-1">
+              <span class="font-sans text-[9px] text-brand-ciel uppercase tracking-widest font-bold block md:hidden mb-0.5">EL RESULTADO DIRECTO</span>
+              <h4 class="font-serif text-base sm:text-lg font-bold text-brand-marine">Resultados que se sostienen.</h4>
+              <p class="font-sans text-xs sm:text-sm text-brand-ardoise font-light leading-relaxed">
+                Estrategias de práctica realistas y continuas para que los avances se integren permanentemente en tu habla diaria.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Motivational Callout - 2 Columns (Quote on Left, Image on Right) -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-brand-ivoire shadow-lg max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-left">
+        <!-- Left Column: Quote -->
+        <div class="md:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 bg-brand-ivoire px-3.5 py-1 rounded-full border border-brand-or/30">
+            <span class="text-brand-or text-xs">💬</span>
+            <span class="font-sans text-[10px] uppercase tracking-[0.2em] font-bold text-brand-marine">
+              FILOSOFÍA DEL MÉTODO
+            </span>
+          </div>
+          
+          <p class="font-serif text-lg sm:text-xl md:text-2xl italic text-brand-marine leading-relaxed font-medium">
+            &ldquo;La pronunciación clara no es un talento místico para unos pocos elegidos. Es una destreza técnica que se aprende ajustando el cuerpo y practicando de forma guiada.&rdquo;
+          </p>
+          
+          <div class="pt-2 border-t border-brand-ivoire flex items-center justify-between">
+            <span class="font-sans text-xs uppercase tracking-[0.15em] text-brand-marine block font-bold">
+              — PROF. SERGIO TOMASSI
+            </span>
+            <span class="font-mono text-[10px] text-brand-ciel uppercase tracking-wider font-semibold">
+              Método Fonético
+            </span>
+          </div>
+        </div>
+
+        <!-- Right Column: Image -->
+        <div class="md:col-span-5 relative rounded-2xl overflow-hidden border-2 border-brand-ivoire shadow-md aspect-[4/3] md:aspect-auto md:h-full min-h-[200px] group">
+          <img 
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800" 
+            alt="Prof. Sergio Tomassi enseñando técnica vocal" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-marine/80 via-transparent to-transparent flex items-end p-4">
+            <span class="bg-brand-marine/90 text-brand-or px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold tracking-wider uppercase border border-brand-or/30">
+              📷 Práctica Guiada en Vivo
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Enrollment CTA -->
+      <div class="pt-6 text-center">
+        <a
+          href="#conversion-form"
+          class="inline-flex items-center justify-center gap-3 bg-brand-or hover:bg-amber-400 text-brand-marine px-8 py-4 rounded-xl font-sans font-bold text-sm sm:text-base uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+        >
+          <span>¡Inscríbete Ahora! Llenar Formulario de Inscripción</span>
+          <span class="text-xl">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Professor Section -->
+  <section id="professor" class="relative py-24 bg-brand-ivoire/30 overflow-hidden px-6 sm:px-12 lg:px-20 border-b border-brand-ivoire">
+    <div class="max-w-5xl mx-auto z-10 relative">
+      
+      <!-- Section title -->
+      <div class="text-left space-y-3 mb-16">
+        <span class="font-sans text-xs uppercase tracking-[0.25em] font-bold text-brand-ciel block">
+          CONOCE A TU INSTRUCTOR
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-brand-marine tracking-tight">
+          Sobre el Profesor
+        </h2>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Portrait Column (40-45% presence) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-[340px] aspect-[4/5] rounded-2xl bg-white p-3 border border-brand-ivoire shadow-xl">
+            <div class="w-full h-full rounded-xl overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600&h=750" 
+                alt="Prof. Sergio Tomassi" 
+                class="w-full h-full object-cover"
+                referrerpolicy="no-referrer"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-marine/60 via-transparent to-transparent"></div>
+              
+              <!-- Floating label identity card -->
+              <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs px-4 py-3 rounded-xl border border-brand-ivoire/30 text-left">
+                <span class="font-sans text-[9px] text-brand-ciel uppercase tracking-widest font-bold block">Fundador del método</span>
+                <span class="font-serif text-base font-bold text-brand-marine">Prof. Sergio Tomassi</span>
+              </div>
+            </div>
+
+            <!-- Frame corners -->
+            <div class="absolute -top-3 -right-3 w-12 h-12 border-t-2 border-r-2 border-brand-or rounded-tr-lg"></div>
+            <div class="absolute -bottom-3 -left-3 w-12 h-12 border-b-2 border-l-2 border-brand-marine rounded-bl-lg"></div>
+          </div>
+        </div>
+
+        <!-- Bio Narrative Column -->
+        <div class="lg:col-span-7 text-left space-y-6">
+          <div class="space-y-4">
+            <span class="font-sans text-xs uppercase tracking-widest font-bold text-brand-or bg-brand-or/10 px-3 py-1 rounded-full inline-block">
+              De Caracas a Montréal
+            </span>
+            <p class="font-sans text-base text-brand-ardoise leading-relaxed font-light">
+              Antes de enseñar francés, Sergio Tomassi fue inmigrante. De raíces italianas, dedicó cerca de tres décadas a la docencia en Caracas. Al llegar a Québec tuvo que empezar de nuevo: integrarse, dominar el francés y revalidar su formación.
+            </p>
+            <p class="font-sans text-base text-brand-ardoise leading-relaxed font-light">
+              Vivió en primera persona el desafío de hacerse entender en una nueva lengua y descubrió que aprender un idioma va mucho más allá de la gramática. Hoy, esa experiencia es la base de su método.
+            </p>
+          </div>
+
+          <!-- Architect Box -->
+          <div class="bg-white border border-brand-ivoire p-6 rounded-2xl space-y-3 shadow-xs">
+            <h4 class="font-serif text-lg font-bold text-brand-marine flex items-center gap-2">
+              <svg class="w-5 h-5 text-brand-ciel" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+              Su enfoque como arquitecto
+            </h4>
+            <p class="font-sans text-sm text-brand-ardoise leading-relaxed font-light">
+              Su formación como arquitecto aporta una mirada única: escucha con atención, identifica los pequeños ajustes que generan grandes cambios y encuentra formas claras de hacer comprensible lo que para muchos parece difícil. Acompaña a cada estudiante con precisión, paciencia y respeto.
+            </p>
+          </div>
+
+          <!-- Quote -->
+          <div class="border-l-4 border-brand-or pl-4 py-1 italic">
+            <p class="font-serif text-base sm:text-lg text-brand-marine font-normal leading-relaxed">
+              "Sé lo que significa llegar a un lugar nuevo, no entender y querer que te tengan paciencia y te entiendan. Por eso enseño como enseño."
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section Enrollment CTA -->
+      <div class="pt-6 text-center">
+        <a
+          href="#conversion-form"
+          class="inline-flex items-center justify-center gap-3 bg-brand-or hover:bg-amber-400 text-brand-marine px-8 py-4 rounded-xl font-sans font-bold text-sm sm:text-base uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+        >
+          <span>¡Inscríbete Ahora! Llenar Formulario de Inscripción</span>
+          <span class="text-xl">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Cierre & Formulario Block -->
+  <section id="conversion-form" class="relative py-24 bg-brand-ivoire/50 overflow-hidden px-6 sm:px-12 lg:px-20 border-t border-brand-ivoire">
+    
+    <div class="max-w-4xl mx-auto space-y-12">
+      
+      <!-- Conversional Closing Header -->
+      <div class="text-center space-y-4">
+        <span class="font-sans text-xs uppercase tracking-[0.25em] font-bold text-brand-ciel block">
+          EMPIEZA HOY MISMO
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-brand-marine tracking-tight leading-tight">
+          Aquí se construye una voz.
+        </h2>
+        <p class="font-serif italic text-lg sm:text-xl text-brand-ardoise max-w-2xl mx-auto leading-relaxed">
+          Con paciencia. Con práctica. Con humor. Con intención. Porque hablar mejor francés no es solo pronunciar mejor. Es sentirte más dueño de tu proceso, más cerca de tus metas y más libre al comunicarte.
+        </p>
+        <div class="flex items-center justify-center gap-1.5 pt-2 text-brand-ciel">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-ciel"></span>
+          <span class="font-mono text-xs uppercase tracking-widest font-bold">Reserva tu sesión de diagnóstico</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-ciel"></span>
+        </div>
+      </div>
+
+      <!-- Real Interactive Questionnaire Form (Simulating Jotform and local persistence) -->
+      <div class="bg-white rounded-2xl border border-brand-ivoire shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+        
+        <div id="form-success-message" class="hidden flex flex-col items-center justify-center text-center py-10 space-y-4">
+          <div class="w-16 h-16 rounded-full bg-brand-or/10 text-brand-or flex items-center justify-center">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-brand-marine">¡Tu solicitud de diagnóstico fue enviada!</h3>
+          <p class="font-sans text-base text-brand-ardoise max-w-md mx-auto">
+            Muchas gracias, <strong id="success-user-name">Estudiante</strong>. El Profe Sergio revisará tus respuestas personalmente y te contactará en menos de 24 horas hábiles a tu correo <strong id="success-user-email"></strong> para programar tu videollamada de diagnóstico.
+          </p>
+          <button id="reset-form-btn" class="mt-6 text-sm font-sans font-bold text-brand-ciel hover:text-brand-marine transition-colors uppercase tracking-wider underline">
+            Enviar otra solicitud / Cambiar respuestas
+          </button>
+        </div>
+
+        <form id="diagnostic-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Full Name -->
+            <div class="space-y-2 text-left">
+              <label for="fullName" class="block font-sans text-xs uppercase tracking-wider font-bold text-brand-marine">
+                Nombre Completo *
+              </label>
+              <input 
+                type="text" 
+                id="fullName" 
+                required 
+                class="w-full bg-brand-ivoire/35 border border-brand-ivoire/80 hover:border-brand-ciel/40 focus:border-brand-ciel focus:ring-1 focus:ring-brand-ciel px-4 py-3 rounded-lg font-sans text-sm outline-none transition-all placeholder-brand-ardoise/50" 
+                placeholder="Ej. Sergio Tomassi"
+              >
+            </div>
+
+            <!-- Email -->
+            <div class="space-y-2 text-left">
+              <label for="email" class="block font-sans text-xs uppercase tracking-wider font-bold text-brand-marine">
+                Correo Electrónico *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                required 
+                class="w-full bg-brand-ivoire/35 border border-brand-ivoire/80 hover:border-brand-ciel/40 focus:border-brand-ciel focus:ring-1 focus:ring-brand-ciel px-4 py-3 rounded-lg font-sans text-sm outline-none transition-all placeholder-brand-ardoise/50" 
+                placeholder="ejemplo@correo.com"
+              >
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- French Level -->
+            <div class="space-y-2 text-left">
+              <label for="frenchLevel" class="block font-sans text-xs uppercase tracking-wider font-bold text-brand-marine">
+                ¿Cuál es tu nivel actual de francés?
+              </label>
+              <select 
+                id="frenchLevel" 
+                class="w-full bg-brand-ivoire/35 border border-brand-ivoire/80 focus:border-brand-ciel focus:ring-1 focus:ring-brand-ciel px-4 py-3 rounded-lg font-sans text-sm outline-none transition-all"
+              >
+                <option value="principiante">Principiante (A1-A2)</option>
+                <option value="intermedio" selected>Intermedio (B1-B2)</option>
+                <option value="avanzado">Avanzado (C1-C2)</option>
+              </select>
+            </div>
+
+            <!-- Main Challenge -->
+            <div class="space-y-2 text-left">
+              <label for="mainChallenge" class="block font-sans text-xs uppercase tracking-wider font-bold text-brand-marine">
+                ¿Cuál es tu mayor obstáculo al hablar?
+              </label>
+              <select 
+                id="mainChallenge" 
+                class="w-full bg-brand-ivoire/35 border border-brand-ivoire/80 focus:border-brand-ciel focus:ring-1 focus:ring-brand-ciel px-4 py-3 rounded-lg font-sans text-sm outline-none transition-all"
+              >
+                <option value="bloqueo">Me bloqueo / me da pena pronunciar mal</option>
+                <option value="comprensión">No entiendo la diferencia de los sonidos reales</option>
+                <option value="ritmo">Hablo muy plano o robotizado</option>
+                <option value="profesional">Tengo una entrevista o examen pronto</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Custom message / Story -->
+          <div class="space-y-2 text-left">
+            <label for="customMessage" class="block font-sans text-xs uppercase tracking-wider font-bold text-brand-marine">
+              Cuéntale brevemente a Sergio sobre tu situación (Opcional)
+            </label>
+            <textarea 
+              id="customMessage" 
+              rows="3" 
+              class="w-full bg-brand-ivoire/35 border border-brand-ivoire/80 focus:border-brand-ciel focus:ring-1 focus:ring-brand-ciel px-4 py-3 rounded-lg font-sans text-sm outline-none transition-all placeholder-brand-ardoise/50" 
+              placeholder="Ej. Vivo en Montreal desde hace 6 meses y me cuesta hacerme entender en el trabajo..."
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2 text-center">
+            <button 
+              type="submit" 
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-marine text-white hover:bg-brand-ciel px-8 py-4 rounded-lg font-sans font-bold tracking-wide text-base transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none"
+            >
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+              <span>Reservar una clase (Enviar diagnóstico)</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="bg-brand-navy text-white/90 py-16 px-6 sm:px-12 lg:px-20 relative">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-white/10 pb-12">
+        <!-- Brand Signature (5 Columns) -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2 scale-125 origin-left">
+              <span class="font-sans text-lg tracking-[0.25em] font-black text-white">PHONÉTIQUE</span>
+              <span class="font-serif italic text-base text-brand-or">du Français</span>
+            </div>
+            <p class="font-sans text-xs text-brand-ivoire/60 pt-2">
+              Un método estructurado por el Prof. Sergio Tomassi.
+            </p>
+          </div>
+          <p class="font-sans text-xs sm:text-sm text-brand-ivoire/80 font-light leading-relaxed">
+            Afinando tu oído, ajustando tu pronunciación y construyendo seguridad estructural para que te expreses con fluidez en francés.
+          </p>
+          <!-- Social Media Links -->
+          <div class="flex gap-3 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/10 hover:bg-white hover:text-brand-navy text-white transition-all duration-300" aria-label="Instagram">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/10 hover:bg-white hover:text-brand-navy text-white transition-all duration-300" aria-label="Facebook">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/10 hover:bg-white hover:text-brand-navy text-white transition-all duration-300" aria-label="LinkedIn">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/10 hover:bg-white hover:text-brand-navy text-white transition-all duration-300" aria-label="YouTube">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer quick anchors & Metadata (4 Columns) -->
+        <div class="md:col-span-4 space-y-4 border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8">
+          <h5 class="font-serif text-sm font-bold text-white uppercase tracking-wider">Manual de Identidad & Marca</h5>
+          <div class="flex flex-col gap-3 text-xs text-brand-ivoire/80">
+            <p class="leading-relaxed">
+              <strong>Phonétique du Français</strong> es una iniciativa dirigida por el Prof. Sergio Tomassi. Todos los derechos reservados © 2026.
+            </p>
+            <p class="font-sans text-[10px] text-brand-or uppercase tracking-wider font-bold">
+              Edición 2026 · Montréal, Québec.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact details & back to top (3 Columns) -->
+        <div class="md:col-span-3 space-y-4 border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8">
+          <h5 class="font-serif text-sm font-bold text-white uppercase tracking-wider">Contacto Directo</h5>
+          <div class="space-y-3 text-xs text-brand-ivoire/80 font-mono">
+            <p class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-or shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <a href="mailto:sergio.tomassi@phonetique.ca" class="hover:text-brand-or transition-colors">sergio.tomassi@phonetique.ca</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-or shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <a href="tel:+15140000000" class="hover:text-brand-or transition-colors">+1 (514) 000-0000</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-or shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Montréal, QC, Canada</span>
+            </p>
+          </div>
+
+          <div class="pt-2">
+            <button
+              onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+              class="inline-flex items-center gap-1 text-[10px] text-brand-or hover:text-white uppercase tracking-wider font-bold transition-all cursor-pointer"
+            >
+              ↑ Volver al inicio
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal rights / details -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-ivoire/55 font-sans pt-4">
+        <p>
+          Diseñado con el Sistema de Identidad Visual "Ciel et Or" para el Prof. Sergio Tomassi · Diseñado por <a href="https://www.venxel.com" target="_blank" rel="noopener noreferrer" class="hover:text-white underline font-bold transition-colors">Venxel</a>
+        </p>
+        <div class="flex items-center gap-1 text-brand-ivoire/75">
+          <svg class="w-3.5 h-3.5 text-brand-erable fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
+          <span>Enseñando con respeto, precisión y humanidad. Montréal, Québec.</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Sticky Floating Enrollment Call to Action Bar (Visible on Scroll) -->
+  <div 
+    id="sticky-cta-bar" 
+    class="fixed bottom-4 inset-x-4 max-w-xl mx-auto z-50 bg-brand-marine text-white p-4 rounded-2xl shadow-2xl border-2 border-brand-or/40 flex items-center justify-between gap-4 backdrop-blur-md transition-all duration-300 opacity-0 translate-y-10 pointer-events-none"
+  >
+    <div class="text-left space-y-0.5">
+      <span class="font-mono text-[9px] font-bold text-brand-or uppercase tracking-widest block">
+        ¡INSCRIPCIONES ABIERTAS — CLASES VÍA ZOOM!
+      </span>
+      <p class="font-serif text-sm font-bold text-white leading-tight">
+        Transforma tu pronunciación en francés
+      </p>
+    </div>
+
+    <a
+      href="#conversion-form"
+      class="bg-brand-or hover:bg-amber-400 text-brand-marine px-5 py-2.5 rounded-xl font-sans font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95 shrink-0 cursor-pointer flex items-center gap-1.5"
+    >
+      <span>¡Inscríbete Ahora!</span>
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    </a>
+  </div>
+
+  <!-- Script for Interactive Features (Video Player, Subtitles, Mobile Drawer, and Form Submission) -->
+  <script src="js/script.js"></script>
+</body>
+</html>
