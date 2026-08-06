@@ -194,8 +194,8 @@ export default function VideoSection() {
             <div className="relative flex-1 bg-black flex items-center justify-center group overflow-hidden">
               <video 
                 ref={video1Ref}
-                src="sergio_intro.mp4"
-                poster="image00009.jpeg"
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                poster="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=720&h=1280"
                 className="w-full h-full object-cover cursor-pointer"
                 playsInline
                 preload="metadata"
@@ -309,8 +309,8 @@ export default function VideoSection() {
             <div className="relative flex-1 bg-black flex items-center justify-center group overflow-hidden">
               <video 
                 ref={video2Ref}
-                src="sergio_vid.mp4"
-                poster="image00022.jpeg"
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+                poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=720&h=1280"
                 className="w-full h-full object-cover cursor-pointer"
                 playsInline
                 preload="metadata"
